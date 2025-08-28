@@ -1,0 +1,102 @@
+version: "3.1"
+
+rules:
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say hello anytime the user says hello
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: Provide help anytime user asks for help
+  steps:
+  - intent: ask_help
+  - action: utter_help
+
+- rule: Handle user affirmation
+  steps:
+  - intent: affirm
+  - action: utter_affirm
+
+- rule: Handle user denial
+  steps:
+  - intent: deny
+  - action: utter_deny
+
+- rule: Ingest menu data when requested
+  steps:
+  - intent: action_ingest_menus
+  - action: action_ingest_menus
+
+- rule: Recommend menu by type
+  steps:
+  - intent: ask_by_menu_type
+  - action: action_recommend_menu
+
+- rule: Recommend menu by cooking method
+  steps:
+  - intent: ask_by_cooking_method
+  - action: action_recommend_menu
+
+- rule: Recommend menu by flavor
+  steps:
+  - intent: ask_by_flavor
+  - action: action_recommend_menu
+
+- rule: Recommend menu by region
+  steps:
+  - intent: ask_by_region
+  - action: action_recommend_menu
+
+- rule: Recommend menu by dish type
+  steps:
+  - intent: ask_by_dish_type
+  - action: action_recommend_menu
+
+- rule: Recommend complex menu search
+  steps:
+  - intent: ask_menu_recommendation_complex
+  - action: action_recommend_menu
+
+- rule: Handle general menu requests
+  steps:
+  - intent: ask_menu_general
+  - action: action_recommend_menu
+
+- rule: Provide random menu
+  steps:
+  - intent: ask_random_menu
+  - action: action_get_random_menu
+
+- rule: Handle menu detail requests
+  steps:
+  - intent: ask_about_menu_details
+  - action: utter_menu_details
+
+- rule: Handle user satisfaction
+  steps:
+  - intent: express_satisfaction
+  - action: utter_satisfaction
+
+- rule: Handle user dissatisfaction
+  steps:
+  - intent: express_dissatisfaction
+  - action: action_handle_complaint
+
+- rule: Handle alternative requests
+  steps:
+  - intent: ask_alternative
+  - action: action_suggest_alternatives
+
+- rule: Handle out of scope
+  steps:
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+
+- rule: Handle NLU fallback
+  steps:
+  - intent: nlu_fallback
+  - action: utter_default

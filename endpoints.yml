@@ -1,0 +1,12 @@
+# Action server endpoint
+action_endpoint:
+  url: "http://localhost:5055/webhook"
+  timeout: 3600
+
+tracker_store:
+  type: sql
+  dialect: "mysql+pymysql"
+  url: "${MYSQL_URL}"
+  username: "${MYSQL_USER}" 
+  password: "${MYSQL_PASSWORD}"
+  db: "${MYSQL_DATABASE}"

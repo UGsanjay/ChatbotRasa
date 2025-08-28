@@ -1,0 +1,175 @@
+version: "3.1"
+
+intents:
+  # Basic conversation intents
+  - greet
+  - goodbye
+  - ask_help
+  - affirm
+  - deny
+  
+  # Core menu recommendation intents
+  - ask_by_menu_type
+  - ask_by_cooking_method
+  - ask_by_flavor
+  - ask_by_region
+  - ask_by_dish_type
+  - ask_menu_recommendation_complex
+  - ask_random_menu
+  - ask_menu_general
+  
+  # Interactive conversation intents
+  - ask_about_menu_details
+  - express_satisfaction
+  - express_dissatisfaction
+  - ask_alternative
+  
+  # Database operations
+  - action_ingest_menus
+  
+  # Fallback intents
+  - out_of_scope
+  - nlu_fallback
+
+entities:
+  - menu_type
+  - flavor
+  - cooking_method
+  - region
+  - dish_type
+  - texture
+
+slots:
+  recommended_menus:
+    type: any
+    initial_value: []
+    influence_conversation: false
+    mappings:
+    - type: custom
+  
+  last_search_query:
+    type: text
+    initial_value: null
+    influence_conversation: false
+    mappings:
+    - type: custom
+  
+  user_preference:
+    type: any
+    initial_value: {}
+    influence_conversation: false
+    mappings:
+    - type: custom
+
+responses:
+  utter_greet:
+    - text: "Halo! Saya siap membantu mencari menu yang Anda inginkan. Ada yang ingin dicari?"
+    - text: "Selamat datang! Mau cari menu apa hari ini?"
+    - text: "Hai! Ceritakan dong, lagi pengen makan apa?"
+    - text: "Halo! Lagi lapar ya? Yuk ceritakan selera Anda!"
+    - text: "Selamat datang di ChatBot Menu! Saya akan bantu carikan makanan yang cocok dengan selera Anda."
+
+  utter_goodbye:
+    - text: "Terima kasih sudah menggunakan ChatBot Menu! Semoga menu yang saya rekomendasikan cocok dengan selera Anda."
+    - text: "Sampai jumpa! Jangan lupa coba menu-menu lezat yang saya sarankan!"
+    - text: "Selamat menikmati makanan! Kembali lagi ya kalau butuh rekomendasi menu lain."
+    - text: "Sampai bertemu lagi! Semoga rekomendasi saya membantu Anda menemukan makanan favorit baru."
+
+  utter_help:
+    - text: |
+        **🤖 ChatBot Menu - Panduan Lengkap**
+        
+        **Cara Mencari Menu:**
+        
+        **🍗 Berdasarkan Protein:**
+        • "menu ayam", "ada ikan?", "seafood enak", "daging sapi"
+        • "menu vegetarian", "sayur tumis", "tahu goreng"
+        
+        **🌶️ Berdasarkan Rasa:**
+        • "menu pedas", "yang manis", "makanan gurih", "yang berkuah"
+        
+        **🔥 Berdasarkan Cara Masak:**
+        • "ayam bakar", "ikan goreng", "sayur tumis", "yang crispy"
+        
+        **🏛️ Berdasarkan Daerah:**
+        • "makanan padang", "masakan manado", "kuliner betawi"
+        
+        **🎯 Multi-Kriteria (ADVANCED):**
+        • "ayam bakar pedas", "ikan kukus sehat", "seafood berkuah gurih"
+        • "menu vegetarian pedas", "tahu crispy gurih"
+        
+        **🎲 Menu Acak:** 
+        • "menu random", "kasih saran", "surprise me"
+        
+        **💡 Tips:** Semakin spesifik kata kunci, semakin akurat rekomendasinya!
+        
+        **📞 Bantuan:** Ketik 'bantuan' kapan saja untuk melihat panduan ini.
+
+  utter_affirm:
+    - text: "Baik! Ada yang bisa saya bantu lagi?"
+    - text: "Oke! Silakan lanjutkan permintaan Anda."
+    - text: "Siap! Apa lagi yang ingin Anda cari?"
+    - text: "Mantap! Ada menu lain yang ingin dicari?"
+
+  utter_deny:
+    - text: "Tidak apa-apa! Ada yang lain yang bisa saya bantu?"
+    - text: "Oke, tidak masalah. Mau coba yang lain?"
+    - text: "Baik, tidak jadi. Ada permintaan lain?"
+    - text: "Gak papa! Coba sebutkan preferensi yang berbeda."
+
+  utter_menu_details:
+    - text: "Untuk info detail menu, pilih menu dari daftar rekomendasi. Saya akan berikan informasi lengkap!"
+    - text: "Silakan klik menu yang Anda minati untuk melihat detail bahan, rasa, dan info lainnya."
+
+  utter_satisfaction:
+    - text: "Senang mendengar rekomendasi saya cocok! Ada menu lain yang ingin dicari?"
+    - text: "Alhamdulillah pas dengan selera Anda! Butuh rekomendasi lain?"
+    - text: "Mantap! Saya akan terus belajar untuk memberikan rekomendasi terbaik."
+
+  utter_dissatisfaction:
+    - text: "Maaf rekomendasi saya kurang sesuai. Mari coba dengan kriteria yang lebih spesifik!"
+    - text: "Tidak masalah! Coba sebutkan preferensi yang lebih detail untuk hasil yang lebih akurat."
+    - text: "Saya akan belajar dari feedback Anda. Coba kata kunci yang berbeda atau lebih spesifik!"
+
+  utter_alternatives:
+    - text: "Tentu! Coba kata kunci yang berbeda atau ketik 'menu random' untuk pilihan alternatif."
+    - text: "Saya bisa carikan alternatif lain. Sebutkan preferensi yang berbeda atau lebih spesifik!"
+
+  utter_default:
+    - text: "Saya tidak yakin memahami permintaan Anda. Coba gunakan kata kunci seperti 'menu ayam', 'makanan pedas', 'menu vegetarian', atau 'seafood'."
+    - text: "Maaf, saya bingung dengan yang Anda maksud. Ketik 'bantuan' untuk melihat cara penggunaan yang benar."
+    - text: "Sepertinya permintaan Anda di luar kemampuan saya. Saya khusus membantu mencari menu makanan. Coba ketik 'menu random' atau 'bantuan'."
+    - text: "Hmm, saya kurang paham. Coba sebutkan jenis makanan, rasa, atau cara masak yang Anda inginkan!"
+
+  utter_out_of_scope:
+    - text: "Maaf, saya khusus membantu mencari dan merekomendasikan menu makanan. Ada menu yang ingin Anda cari?"
+    - text: "Saya tidak bisa membantu dengan itu, tapi saya ahli dalam rekomendasi menu makanan! Mau cari menu apa?"
+    - text: "Untuk pertanyaan di luar menu makanan, saya kurang bisa membantu. Tapi kalau soal makanan, tanya aja!"
+
+actions:
+  # Core custom actions
+  - action_ingest_menus
+  - action_recommend_menu
+  - action_get_random_menu
+  
+  # Interactive custom actions
+  - action_provide_menu_details
+  - action_handle_complaint
+  - action_suggest_alternatives
+  
+  # Default responses
+  - utter_greet
+  - utter_goodbye  
+  - utter_help
+  - utter_affirm
+  - utter_deny
+  - utter_menu_details
+  - utter_satisfaction
+  - utter_dissatisfaction
+  - utter_alternatives
+  - utter_default
+  - utter_out_of_scope
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: false

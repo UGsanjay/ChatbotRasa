@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBot Rekomendasi Menu Makanan</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-utensils"></i>
+                    <h1>ChatBot Menu</h1>
+                </div>
+                <div class="header-actions">
+                    <button id="cartButton" class="cart-btn" title="Lihat Keranjang">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span id="cartCount" class="cart-count">0</span>
+                    </button>
+                    <div class="status-indicator">
+                        <span id="connectionStatus" class="status-dot offline"></span>
+                        <span id="statusText">Menghubungkan...</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <!-- Chat Section -->
+            <div class="chat-section">
+                <div class="chat-header">
+                    <h2><i class="fas fa-comments"></i> Chat dengan Bot</h2>
+                    <button id="clearChat" class="clear-btn" title="Bersihkan Chat">
+                        <i class="fas fa-trash"></i> Clear
+                    </button>
+                </div>
+                
+                <div id="chatMessages" class="chat-messages">
+                </div>
+
+                <div class="chat-input-container">
+                    <div class="quick-suggestions">
+                        <button class="suggestion-btn" data-text="ada ikan?">🐟 Menu Ikan</button>
+                        <button class="suggestion-btn" data-text="yang pedas">🌶️ Menu Pedas</button>
+                        <button class="suggestion-btn" data-text="ayam bakar">🔥 Ayam Bakar</button>
+                        <button class="suggestion-btn" data-text="menu random">🎲 Surprise Me</button>
+                    </div>
+                    
+                    <div class="input-container">
+                        <input type="text" id="messageInput" placeholder="Ketik pesan Anda... (contoh: 'ada ikan?', 'yang pedas')" maxlength="500">
+                        <button id="sendButton" disabled>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menu Store Section -->
+            <div class="menu-section">
+                <div class="menu-header">
+                    <h2><i class="fas fa-store"></i> Menu Makanan</h2>
+                    <div class="menu-count">
+                        <span id="menuCount">0</span> menu tersedia
+                    </div>
+                </div>
+                
+                <div id="menuResults" class="menu-results">
+                    <div class="empty-state">
+                        <i class="fas fa-utensils"></i>
+                        <p>Belum ada menu yang ditampilkan</p>
+                        <p class="empty-subtitle">Chat dengan bot untuk mencari menu!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading overlay -->
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Mencari menu makanan terbaik...</p>
+        </div>
+    </div>
+
+    <!-- Menu Detail Modal -->
+    <div id="menuModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Detail Menu</h3>
+                <button id="closeModal" class="close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="modalContent">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Page -->
+    <div id="cartPage" class="cart-page hidden">
+        <div class="cart-container">
+            <div class="cart-header">
+                <h2><i class="fas fa-shopping-cart"></i> Keranjang Belanja</h2>
+                <button id="closeCart" class="close-cart-btn">
+                    <i class="fas fa-times"></i> Tutup
+                </button>
+            </div>
+            
+            <div id="cartItems" class="cart-items">
+                <div class="empty-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <p>Keranjang belanja kosong</p>
+                    <p>Tambahkan menu dari halaman utama</p>
+                </div>
+            </div>
+            
+            <div id="cartSummary" class="cart-summary hidden">
+                <div class="total-section">
+                    <div class="total-row">
+                        <span>Total Item:</span>
+                        <span id="totalItems">0</span>
+                    </div>
+                    <div class="total-row total-price">
+                        <span>Total Harga:</span>
+                        <span id="totalPrice">Rp 0</span>
+                    </div>
+                </div>
+                
+                <div class="checkout-section">
+                    <button id="clearCartBtn" class="clear-cart-btn">
+                        <i class="fas fa-trash"></i> Kosongkan
+                    </button>
+                    <button id="checkoutBtn" class="checkout-btn">
+                        <i class="fas fa-credit-card"></i> Bayar Sekarang
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

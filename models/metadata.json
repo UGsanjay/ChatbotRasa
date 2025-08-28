@@ -1,0 +1,11 @@
+{
+  "approach": "FIXED_MULTI_VALUE_IKAN_SEAFOOD_v4.0",
+  "version": "4.0_multi_value_fixed",
+  "total_menus": 100,
+  "last_updated": "2025-08-28T04:27:21.300466",
+  "model_name": "all-MiniLM-L6-v2",
+  "embedding_dim": 384,
+  "multi_value_support": true,
+  "ikan_seafood_fixed": true,
+  "food_keywords_active": true
+}

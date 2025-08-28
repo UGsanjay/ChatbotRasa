@@ -1,0 +1,812 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - halo
+    - hai
+    - hi
+    - hello
+    - selamat pagi
+    - selamat siang
+    - selamat sore
+    - pagi
+    - siang
+    - sore
+    - good morning
+    - apa kabar
+    - halo bot
+    - hai chatbot
+    - hey
+    - morning
+    - assalamualaikum
+    - salam
+    - permisi
+    - halo saya baru disini
+    - test
+    - testing
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - sampai jumpa
+    - selamat tinggal
+    - terima kasih
+    - thanks
+    - makasih
+    - thank you
+    - see you
+    - sampai nanti
+    - bye bye
+    - sudah dulu
+    - cukup
+    - sudah cukup
+    - selesai
+    - finish
+    - done
+    - wassalamualaikum
+
+- intent: ask_help
+  examples: |
+    - help
+    - bantuan
+    - tolong
+    - gimana cara pakainya
+    - apa yang bisa kamu lakukan
+    - perintah apa saja
+    - menu bantuan
+    - panduan
+    - cara menggunakan
+    - fitur apa saja
+    - cara pakai
+    - tutorial
+    - petunjuk
+    - guide
+    - info
+    - informasi
+    - cara kerja
+    - instruksi
+    - manual
+    - apa fungsimu
+    - kamu bisa apa
+    - bagaimana menggunakan bot ini
+
+- intent: affirm
+  examples: |
+    - ya
+    - iya
+    - betul
+    - benar
+    - ok
+    - oke
+    - baik
+    - yes
+    - siap
+    - setuju
+    - lanjut
+    - bagus
+    - mantap
+    - cocok
+    - pas
+    - tepat
+    - sesuai
+    - yep
+    - correct
+    - right
+    - good
+
+- intent: deny
+  examples: |
+    - tidak
+    - nggak
+    - enggak
+    - bukan
+    - no
+    - gak usah
+    - cancel
+    - batal
+    - gak
+    - tidak jadi
+    - salah
+    - skip
+    - lewat
+    - pass
+    - nope
+    - wrong
+    - ga cocok
+    - kurang sesuai
+    - beda
+
+- intent: ask_by_menu_type
+  examples: |
+    - menu [ayam](menu_type)
+    - makanan [ikan](menu_type)
+    - ada [sapi](menu_type)
+    - rekomendasi [udang](menu_type)
+    - menu [seafood](menu_type)
+    - makanan [kambing](menu_type)
+    - ada [cumi](menu_type)
+    - menu [kepiting](menu_type)
+    - makanan [bebek](menu_type)
+    - [chicken](menu_type)
+    - [fish](menu_type)
+    - [beef](menu_type)
+    - [shrimp](menu_type)
+    - [squid](menu_type)
+    - [duck](menu_type)
+    - ada menu [ayam](menu_type)
+    - mau [ikan](menu_type)
+    - pengen [sapi](menu_type)
+    - cari [udang](menu_type)
+    - [salmon](menu_type)
+    - [tuna](menu_type)
+    - [kakap](menu_type)
+    - [gurame](menu_type)
+    - [lele](menu_type)
+    - [nila](menu_type)
+    - [bandeng](menu_type)
+    - [tenggiri](menu_type)
+    - daging [sapi](menu_type)
+    - daging [kambing](menu_type)
+    - hasil [laut](menu_type)
+    - makanan [laut](menu_type)
+    - menu [telur](menu_type)
+    - makanan [tahu](menu_type)
+    - menu [tempe](menu_type)
+    - [lobster](menu_type)
+    - [kerang](menu_type)
+    - mau makan [ayam](menu_type)
+    - lagi pengen [ikan](menu_type)
+    - ada menu berbahan [sapi](menu_type)
+    - cari makanan [seafood](menu_type)
+    - menu protein [ayam](menu_type)
+    - hidangan [bebek](menu_type)
+    # VEGETARIAN PATTERNS
+    - menu [vegetarian](menu_type)
+    - makanan [vegetarian](menu_type)
+    - ada [vegetarian](menu_type)
+    - menu [vegan](menu_type)
+    - makanan [vegan](menu_type)
+    - ada [vegan](menu_type)
+    - menu [sayur](menu_type)
+    - makanan [sayur](menu_type)
+    - ada [sayuran](menu_type)
+    - menu [sayuran](menu_type)
+    - makanan tanpa [daging](menu_type)
+    - menu tanpa [daging](menu_type)
+    - makanan [nabati](menu_type)
+    - menu [nabati](menu_type)
+    - [plant based](menu_type)
+    - makanan [tumbuhan](menu_type)
+    - menu non [meat](menu_type)
+    - makanan non [hewani](menu_type)
+    - ada menu [sayur](menu_type) mayur
+    - pengen makanan [vegetarian](menu_type)
+    - cari menu [vegan](menu_type)
+    - mau makanan [sayuran](menu_type)
+    - lagi diet [vegetarian](menu_type)
+    - makanan sehat [vegetarian](menu_type)
+    - menu diet [vegetarian](menu_type)
+    - hidangan [vegetarian](menu_type)
+    - masakan [vegetarian](menu_type)
+    - kuliner [vegetarian](menu_type)
+
+- intent: ask_by_cooking_method
+  examples: |
+    - menu [goreng](cooking_method)
+    - makanan [rebus](cooking_method)
+    - yang [bakar](cooking_method)
+    - menu [tumis](cooking_method)
+    - makanan [kukus](cooking_method)
+    - yang [panggang](cooking_method)
+    - makanan [balado](cooking_method)
+    - yang [rica](cooking_method)
+    - menu [gulai](cooking_method)
+    - makanan [rendang](cooking_method)
+    - [fried](cooking_method)
+    - [grilled](cooking_method)
+    - [boiled](cooking_method)
+    - [steamed](cooking_method)
+    - [barbecue](cooking_method)
+    - [bbq](cooking_method)
+    - [curry](cooking_method)
+    - [digoreng](cooking_method)
+    - [dibakar](cooking_method)
+    - [dipanggang](cooking_method)
+    - [direbus](cooking_method)
+    - [dikukus](cooking_method)
+    - [ditumis](cooking_method)
+    - [dirica](cooking_method)
+    - [dibalado](cooking_method)
+    - makanan [goreng](cooking_method) apa yang enak
+    - saran makanan [bakar](cooking_method)
+    - yang [rebus](cooking_method) dong
+    - pengen [tumis](cooking_method)
+    - ada yang [kukus](cooking_method)
+    - mau [panggang](cooking_method)
+    - [crispy](cooking_method)
+    - rica-[rica](cooking_method)
+    - sambal [balado](cooking_method)
+    - menu [oseng](cooking_method)
+    - makanan [woku](cooking_method)
+    - yang [pop](cooking_method)
+    - menu [pepes](cooking_method)
+    - makanan [asap](cooking_method)
+    - yang [presto](cooking_method)
+    - menu [serundeng](cooking_method)
+    - makanan [ungkep](cooking_method)
+    - yang [renyah](cooking_method)
+    - menu [garing](cooking_method)
+    - cara masak [goreng](cooking_method)
+    - metode [bakar](cooking_method)
+
+- intent: ask_by_flavor
+  examples: |
+    - menu [pedas](flavor)
+    - makanan [manis](flavor)
+    - yang [gurih](flavor)
+    - menu rasa [asam](flavor)
+    - makanan [asin](flavor)
+    - yang [segar](flavor)
+    - menu [berkuah](flavor)
+    - yang [kering](flavor)
+    - makanan [santan](flavor)
+    - [spicy](flavor)
+    - [sweet](flavor)
+    - [sour](flavor)
+    - [salty](flavor)
+    - [hot](flavor)
+    - menu tidak [pedas](flavor)
+    - makanan [pedas](flavor) apa yang enak
+    - ada yang [manis](flavor)
+    - suka rasa [pedas](flavor)
+    - yang [berkuah](flavor) dong
+    - pengen yang [gurih](flavor)
+    - mau rasa [asam](flavor) manis
+    - [pedas](flavor) banget
+    - agak [pedas](flavor)
+    - tidak [pedas](flavor)
+    - level [pedas](flavor)
+    - [cabai](flavor)
+    - [sambal](flavor)
+    - [kuah](flavor)
+    - [soup](flavor)
+    - tanpa [kuah](flavor)
+    - menu [crispy](texture)
+    - yang [empuk](texture)
+    - makanan [lembut](texture)
+    - yang [kenyal](texture)
+    - menu [renyah](texture)
+    - makanan [garing](texture)
+    - yang [creamy](texture)
+    - menu [crunchy](texture)
+    - hidangan [tender](texture)
+    - makanan rasa [original](flavor)
+    - yang rasa [biasa](flavor)
+    - menu [bumbu bali](flavor)
+    - makanan [bumbu rujak](flavor)
+    - yang [kelapa](flavor)
+    - rasa [pedes](flavor)
+    - yang [nyelekit](flavor)
+
+- intent: ask_by_region
+  examples: |
+    - makanan [padang](region)
+    - menu [jawa](region)
+    - masakan [manado](region)
+    - makanan [aceh](region)
+    - masakan [betawi](region)
+    - makanan [sunda](region)
+    - menu [bali](region)
+    - makanan [palembang](region)
+    - [minang](region)
+    - sumatera [barat](region)
+    - sulawesi [utara](region)
+    - [javanese](region)
+    - [jogja](region)
+    - [solo](region)
+    - [yogyakarta](region)
+    - [semarang](region)
+    - [bandung](region)
+    - [priangan](region)
+    - [balinese](region)
+    - [acehnese](region)
+    - [jakarta](region)
+    - [minahasa](region)
+    - [minangkabau](region)
+    - [sundanese](region)
+    - [madura](region)
+    - [madurese](region)
+    - [lombok](region)
+    - [sasak](region)
+    - [medan](region)
+    - [batak](region)
+    - [makassar](region)
+    - [bugis](region)
+    - [surakarta](region)
+    - [chinese](region)
+    - [cina](region)
+    - [tionghoa](region)
+    - menu daerah [padang](region)
+    - masakan khas [jawa](region)
+    - kuliner [manado](region)
+    - makanan tradisional [aceh](region)
+    - hidangan [betawi](region)
+    - menu khas [sunda](region)
+    - cari makanan [padang](region)
+    - ada menu [jawa](region) tidak
+    - pengen makanan [manado](region)
+    - dari [padang](region)
+    - khas [jawa](region)
+    - asli [sunda](region)
+    - masakan [indonesia](region)
+    - kuliner nusantara [jawa](region)
+    - hidangan daerah [bali](region)
+    - menu tradisional [aceh](region)
+
+- intent: ask_menu_recommendation_complex
+  examples: |
+    - [ayam](menu_type) [bakar](cooking_method)
+    - [ikan](menu_type) [goreng](cooking_method)
+    - [sapi](menu_type) [rendang](cooking_method)
+    - [udang](menu_type) [balado](cooking_method)
+    - [ayam](menu_type) [rica](cooking_method) [pedas](flavor)
+    - [ikan](menu_type) [kukus](cooking_method) yang [segar](flavor)
+    - [ayam](menu_type) [bakar](cooking_method) yang [pedas](flavor)
+    - [ikan](menu_type) [goreng](cooking_method) [gurih](flavor)
+    - [sapi](menu_type) [rendang](cooking_method) [padang](region)
+    - [ayam](menu_type) [rica](cooking_method) [manado](region)
+    - [kambing](menu_type) [gulai](cooking_method) [pedas](flavor)
+    - [seafood](menu_type) [bakar](cooking_method) [pedas](flavor)
+    - [cumi](menu_type) [balado](cooking_method) [pedas](flavor)
+    - [gurame](menu_type) [bakar](cooking_method) [manis](flavor)
+    - [bebek](menu_type) [goreng](cooking_method) [gurih](flavor)
+    - makanan [pedas](flavor) yang [berkuah](flavor)
+    - menu [manis](flavor) yang [gurih](flavor)
+    - masakan [jawa](region) yang [manis](flavor)
+    - hidangan [sunda](region) yang [segar](flavor)
+    - [ayam](menu_type) [bakar](cooking_method) [pedas](flavor) [manado](region)
+    - makanan [pedas](flavor) dan [berkuah](flavor)
+    - yang [pedas](flavor) tapi [berkuah](flavor)
+    - [ikan](menu_type) [bakar](cooking_method) rasa [pedas](flavor)
+    - [ayam](menu_type) yang [pedas](flavor) dan [crispy](texture)
+    - menu [berkuah](flavor) yang [pedas](flavor)
+    - makanan [manis](flavor) yang [gurih](flavor)
+    - [seafood](menu_type) [pedas](flavor) yang [berkuah](flavor)
+    - [sapi](menu_type) [gulai](cooking_method) yang [pedas](flavor)
+    - hidangan [padang](region) yang [pedas](flavor)
+    - makanan [manado](region) yang [pedas](flavor)
+    - [ikan](menu_type) [woku](cooking_method) [pedas](flavor)
+    - [udang](menu_type) [tumis](cooking_method) [pedas](flavor)
+    - menu [ayam](menu_type) [pedas](flavor) [berkuah](flavor)
+    - [ikan](menu_type) [pedas](flavor) yang [berkuah](flavor)
+    - makanan yang [pedas](flavor) dan [berkuah](flavor)
+    - hidangan [pedas](flavor) tapi [berkuah](flavor)
+    - menu [gurih](flavor) yang [berkuah](flavor)
+    - makanan [manis](flavor) dan [gurih](flavor)
+    # VEGETARIAN COMBINATIONS
+    - [vegetarian](menu_type) yang [pedas](flavor)
+    - [sayur](menu_type) [tumis](cooking_method)
+    - [tahu](menu_type) [goreng](cooking_method)
+    - [tempe](menu_type) [bakar](cooking_method)
+    - [vegetarian](menu_type) [berkuah](flavor)
+    - makanan [vegetarian](menu_type) yang [pedas](flavor)
+    - [sayur](menu_type) yang [gurih](flavor)
+    - [tahu](menu_type) yang [crispy](texture)
+    - [tempe](menu_type) [goreng](cooking_method) [pedas](flavor)
+    - [vegetarian](menu_type) [rebus](cooking_method)
+    - [sayuran](menu_type) [tumis](cooking_method) [pedas](flavor)
+    - makanan [vegetarian](menu_type) yang [sehat](flavor)
+    - [tahu](menu_type) [isi](dish_type) yang [gurih](flavor)
+    - [tempe](menu_type) [orek](cooking_method) [manis](flavor)
+    - [cap cay](dish_type) [vegetarian](menu_type)
+    - [sayur asem](dish_type) yang [segar](flavor)
+    - [gado gado](dish_type) [vegetarian](menu_type)
+    - [urap](dish_type) yang [gurih](flavor)
+    - [lotek](dish_type) [vegetarian](menu_type)
+    - [karedok](dish_type) yang [segar](flavor)
+    - [kangkung](menu_type) [tumis](cooking_method) [pedas](flavor)
+    - [bayam](menu_type) [rebus](cooking_method)
+    - [terong](menu_type) [balado](cooking_method)
+    - makanan [vegetarian](menu_type) [jawa](region)
+    - hidangan [vegetarian](menu_type) [sunda](region)
+    - [sayur](menu_type) [padang](region)
+    - [vegetarian](menu_type) [chinese](region)
+    # Natural language variations
+    - cari [ayam](menu_type) yang [digoreng](cooking_method) dan [pedas](flavor)
+    - ada [ikan](menu_type) yang [dibakar](cooking_method) rasa [gurih](flavor)?
+    - mau [sapi](menu_type) yang [empuk](texture) dan [berkuah](flavor)
+    - pengen [seafood](menu_type) yang [fresh](flavor) dan [tidak pedas](flavor)
+    - rekomendasi [ayam](menu_type) [crispy](texture) yang [pedas](flavor) dong
+    - coba kasih [ikan](menu_type) yang [sehat](flavor) dan [kukus](cooking_method)
+    - ada menu [bebek](menu_type) yang [gurih](flavor) tapi [tidak pedas](flavor)?
+    - mau [udang](menu_type) yang [manis](flavor) dan [tumis](cooking_method)
+    - cari makanan [jawa](region) yang [manis](flavor) dan [berkuah](flavor)
+    - ada hidangan [padang](region) yang [pedas](flavor) sekali?
+    - pengen [soto](dish_type) [ayam](menu_type) yang [berkuah](flavor) [gurih](flavor)
+    - mau [gado gado](dish_type) yang [segar](flavor)
+    - cari [nasi](dish_type) dengan [ayam](menu_type) [bakar](cooking_method)
+    # VEGETARIAN NATURAL LANGUAGE
+    - cari makanan [vegetarian](menu_type) yang enak
+    - ada [sayur](menu_type) yang [digoreng](cooking_method) renyah?
+    - pengen [tahu](menu_type) yang [digoreng](cooking_method) [crispy](texture)
+    - mau [tempe](menu_type) yang [dibakar](cooking_method) [manis](flavor)
+    - ada menu [vegetarian](menu_type) yang [tidak pedas](flavor)?
+    - cari [sayuran](menu_type) yang [sehat](flavor) dan [segar](flavor)
+    - pengen makanan tanpa daging yang [berkuah](flavor)
+    - mau [vegetarian](menu_type) yang [gurih](flavor) tapi tidak pedas
+    - ada hidangan [vegetarian](menu_type) [sunda](region)?
+    - cari [sayur](menu_type) khas [jawa](region)
+
+- intent: ask_by_dish_type
+  examples: |
+    - menu [soto](dish_type)
+    - ada [sup](dish_type)
+    - makanan [gado gado](dish_type)
+    - menu [nasi](dish_type)
+    - ada [mie](dish_type)
+    - makanan [rujak](dish_type)
+    - menu [pecel](dish_type)
+    - ada [sate](dish_type)
+    - makanan [pempek](dish_type)
+    - menu [gudeg](dish_type)
+    - ada [rawon](dish_type)
+    - makanan [bakso](dish_type)
+    - menu [siomay](dish_type)
+    - ada [martabak](dish_type)
+    - makanan [kerak telor](dish_type)
+    - menu [ketoprak](dish_type)
+    - ada [lotek](dish_type)
+    - makanan [karedok](dish_type)
+    - menu [lalapan](dish_type)
+    - ada [kerupuk](dish_type)
+    - pengen [soto](dish_type) apa yang enak
+    - mau [bakso](dish_type) yang enak
+    - ada [sate](dish_type) apa saja
+    - rekomendasi [nasi](dish_type) yang enak
+    - menu [sup](dish_type) hari ini
+    - [mie](dish_type) apa yang tersedia
+    # VEGETARIAN DISHES
+    - menu [cap cay](dish_type)
+    - ada [capcay](dish_type)
+    - makanan [sayur asem](dish_type)
+    - menu [sayur sop](dish_type)
+    - ada [sayur bayam](dish_type)
+    - makanan [kangkung](dish_type)
+    - menu [terong](dish_type)
+    - ada [toge](dish_type)
+    - makanan [tahu isi](dish_type)
+    - menu [tempe orek](dish_type)
+    - ada [sayur lodeh](dish_type)
+    - makanan [urap](dish_type)
+    - menu [plecing kangkung](dish_type)
+    - ada [tumis kangkung](dish_type)
+    - makanan [cah kangkung](dish_type)
+    - pengen [cap cay](dish_type) yang enak
+    - mau [sayur asem](dish_type) yang segar
+    - ada [urap](dish_type) yang enak
+    - rekomendasi [sayur lodeh](dish_type)
+    - menu sayur [kangkung](dish_type)
+    - [tumis](dish_type) sayuran
+
+- intent: ask_menu_general
+  examples: |
+    - cari menu
+    - mau makan
+    - lapar
+    - ada apa
+    - menu apa
+    - makanan apa
+    - apa saja
+    - pengen makan
+    - mau cari makanan
+    - ada menu apa
+    - pilihan apa
+    - rekomendasi
+    - saran
+    - ide
+    - makan apa ya
+    - enaknya apa
+    - cocoknya apa
+    - bingung mau makan apa
+    - kasih tau dong
+    - info menu
+    - daftar menu
+    - list menu
+    - tampilkan menu
+    - menu makanan
+    - makanan enak
+    - menu enak
+    - ada makanan apa
+    - menu hari ini
+    - lagi lapar nih
+    - perut kosong
+    - butuh makan
+    - cari makan
+    - hunting makanan
+    - explore menu
+    - jelajahi menu
+    - apa yang tersedia
+    - makanan apa saja yang ada
+    - opsi makanan
+    - variasi menu
+    - pilihan menu hari ini
+    - menu spesial
+    - hidangan istimewa
+    - makanan favorit
+    - menu unggulan
+    - signature dish
+    - menu andalan
+    - best seller
+    - yang paling laris
+    - menu terlaris
+
+- intent: ask_random_menu
+  examples: |
+    - menu random
+    - kasih menu acak
+    - menu apa aja
+    - surprise me
+    - menu random dong
+    - mau menu acak
+    - kasih ide menu
+    - menu apapun
+    - random menu
+    - kasih saran menu
+    - acak menu
+    - pilih menu untuk saya
+    - menu sembarang
+    - apa rekomendasi hari ini
+    - menu favorit apa
+    - yang populer apa
+    - random
+    - acak
+    - surprise
+    - kasih rekomendasi
+    - saran menu
+    - ide menu
+    - pilihan menu
+    - rekomendasi acak
+    - menu terbaik
+    - top menu
+    - menu spesial
+    - menu trending
+    - menu populer
+    - kasih yang enak
+    - pilihkan menu
+    - tentukan menu
+    - kaget-kagetin aku
+    - kasih kejutan menu
+    - menu mystery
+    - menu rahasia
+    - pilihan editor
+    - chef recommendation
+    - pilihan chef
+    - menu of the day
+    - daily special
+    - lucky draw menu
+    - menu beruntung
+    - roulette menu
+    - spin menu
+    - jackpot menu
+    - menu undian
+
+- intent: ask_about_menu_details
+  examples: |
+    - ceritakan lebih detail
+    - info lengkap dong
+    - gimana rasanya
+    - enak gak sih
+    - worth it gak
+    - recommended gak
+    - bagus gak menu ini
+    - gimana reviewnya
+    - orang suka gak
+    - populer gak
+    - laris gak
+    - pernah coba belum
+    - rasanya gimana
+    - teksturnya gimana
+    - pedasnya level berapa
+    - porsinya besar gak
+    - mengenyangkan gak
+    - cocok buat diet gak
+    - kalorinya berapa
+    - sehat gak
+    - ada allergen gak
+    - halal gak
+    - fresh gak
+    - homemade gak
+
+- intent: express_satisfaction
+  examples: |
+    - oke mantap
+    - bagus banget
+    - cocok nih
+    - pas banget
+    - sesuai selera
+    - keren rekomendasinya
+    - top markotop
+    - makasih ya
+    - helpful banget
+    - tepat sasaran
+    - akurat nih
+    - spot on
+    - exactly what i need
+    - perfect
+    - excellent
+    - amazing recommendation
+    - great job
+    - well done
+    - impressive
+    - outstanding
+    - brilliant
+    - superb
+
+- intent: express_dissatisfaction
+  examples: |
+    - kurang sesuai
+    - gak cocok
+    - beda dari yang diminta
+    - gak sesuai ekspektasi
+    - kurang tepat
+    - agak meleset
+    - not quite right
+    - not what i wanted
+    - different from what i asked
+    - kurang pas
+    - gak sesuai selera
+    - terlalu pedas
+    - terlalu manis
+    - terlalu asin
+    - gak suka yang beginian
+    - bukan yang itu
+    - cari yang lain
+    - ada alternatif lain
+
+- intent: ask_alternative
+  examples: |
+    - ada yang lain
+    - opsi lain dong
+    - alternatif lain
+    - pilihan lain
+    - yang berbeda
+    - variasi lain
+    - ganti yang lain
+    - coba yang lain
+    - kasih pilihan lain
+    - ada menu sejenis
+    - serupa tapi tak sama
+    - mirip tapi beda
+    - similar but different
+    - comparable options
+    - equivalent choices
+    - substitute menu
+    - replacement menu
+    - other options
+    - more choices
+    - different varieties
+
+- intent: action_ingest_menus
+  examples: |
+    - ingest data
+    - load dataset
+    - import menu
+    - muat data
+    - ingest menus
+    - load data
+    - import data
+    - update database
+    - muat menu
+    - ingest database
+    - refresh data
+    - sync database
+    - reload data
+    - refresh database
+    - update menu
+    - import dataset
+    - muat ulang
+    - perbarui data
+    - setup database
+    - initialize data
+    - rebuild index
+    - reindex data
+    - recalibrate system
+    - resep masakan lengkap
+    - booking hotel
+    - tiket pesawat
+    - film terbaru
+    - musik hits
+    - olahraga
+    - politik
+    - ekonomi
+    - teknologi
+    - travel
+    - wisata
+    - fashion
+    - shopping
+    - belanja
+    - investasi
+    - game online
+    - streaming
+    - social media
+    - facebook
+    - instagram
+    - tiktok
+    - youtube
+    - whatsapp
+    - telegram
+    - dating
+    - jodoh
+    - pacaran
+    - relationship
+    - marriage
+    - kerja
+    - pekerjaan
+    - karir
+    - salary
+    - gaji
+    - interview
+    - pendidikan
+    - kuliah
+    - sekolah
+    - les
+    - kursus
+    - kesehatan
+    - dokter
+    - obat
+    - penyakit
+    - treatment
+    - therapy
+    - fitness
+    - gym
+    - workout
+    - exercise
+
+- intent: nlu_fallback
+  examples: |
+    - asdfgh
+    - qwerty
+    - blablabla
+    - xxxxxxxxx
+    - 123456789
+    - zzzzzz
+    - hmmmmm
+    - wkwkwk
+    - hahaha
+    - lalala
+    - ngasal
+    - random text
+    - gibberish
+    - meaningless
+    - aaaaaa
+    - bbbbb
+    - ccccc
+    - test test test
+    - hello world
+    - lorem ipsum
+    - sample textet database
+    - restart system
+    - reload system
+    - refresh system
+    - update system
+    - sync system
+    - prepare data
+    - process data
+    - train model
+    - build knowledge base
+
+- intent: out_of_scope
+  examples: |
+    - cuaca hari ini
+    - berita terbaru
+    - jam berapa sekarang
+    - siapa presiden indonesia
+    - cara main game
+    - download musik
+    - belajar bahasa inggris
+    - harga saham
+    - resep masakan lengkap  
+    - booking hotel
+    - tiket pesawat

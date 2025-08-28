@@ -1,0 +1,351 @@
+version: "3.1"
+
+stories:
+
+- story: simple greet
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- story: simple goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: ask for help
+  steps:
+  - intent: ask_help
+  - action: utter_help
+
+- story: ingest menu data
+  steps:
+  - intent: action_ingest_menus
+  - action: action_ingest_menus
+
+- story: search by protein
+  steps:
+  - intent: ask_by_menu_type
+    entities:
+    - menu_type: "ayam"
+  - action: action_recommend_menu
+
+- story: search by cooking method
+  steps:
+  - intent: ask_by_cooking_method
+    entities:
+    - cooking_method: "goreng"
+  - action: action_recommend_menu
+
+- story: search by flavor
+  steps:
+  - intent: ask_by_flavor
+    entities:
+    - flavor: "pedas"
+  - action: action_recommend_menu
+
+- story: search by region
+  steps:
+  - intent: ask_by_region
+    entities:
+    - region: "padang"
+  - action: action_recommend_menu
+
+- story: search by dish type
+  steps:
+  - intent: ask_by_dish_type
+    entities:
+    - dish_type: "soto"
+  - action: action_recommend_menu
+
+# ENHANCED MULTI-CRITERIA SEARCHES
+- story: complex multi-criteria search
+  steps:
+  - intent: ask_menu_recommendation_complex
+    entities:
+    - menu_type: "ayam"
+    - cooking_method: "bakar"
+    - flavor: "pedas"
+  - action: action_recommend_menu
+
+- story: texture and protein search
+  steps:
+  - intent: ask_menu_recommendation_complex
+    entities:
+    - menu_type: "ayam"
+    - texture: "crispy"
+    - flavor: "pedas"
+  - action: action_recommend_menu
+
+- story: regional flavor combination
+  steps:
+  - intent: ask_menu_recommendation_complex
+    entities:
+    - region: "manado"
+    - flavor: "pedas"
+    - cooking_method: "rica"
+  - action: action_recommend_menu
+
+- story: ask general menu
+  steps:
+  - intent: ask_menu_general
+  - action: action_recommend_menu
+
+- story: ask random menu
+  steps:
+  - intent: ask_random_menu
+  - action: action_get_random_menu
+
+- story: user satisfaction after search
+  steps:
+  - intent: ask_by_menu_type
+    entities:
+    - menu_type: "ayam"
+  - action: action_recommend_menu
+  - intent: express_satisfaction
+  - action: utter_satisfaction
+
+- story: user dissatisfaction then alternative
+  steps:
+  - intent: ask_by_cooking_method
+    entities:
+    - cooking_method: "goreng"
+  - action: action_recommend_menu
+  - intent: express_dissatisfaction
+  - action: action_handle_complaint
+  - intent: ask_alternative
+  - action: action_suggest_alternatives
+
+- story: ask menu details after recommendation
+  steps:
+  - intent: ask_by_menu_type
+    entities:
+    - menu_type: "seafood"
+  - action: action_recommend_menu
+  - intent: ask_about_menu_details
+  - action: utter_menu_details
+
+- story: complete conversation flow
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_by_menu_type
+    entities:
+    - menu_type: "ayam"
+  - action: action_recommend_menu
+  - intent: express_satisfaction
+  - action: utter_satisfaction
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: help then complex search
+  steps:
+  - intent: ask_help
+  - action: utter_help
+  - intent: ask_menu_recommendation_complex
+    entities:
+    - menu_type: "ikan"
+    - cooking_method: "bakar"
+    - flavor: "pedas"
+  - action: action_recommend_menu
+
+- story: search refinement flow
+  steps:
+  - intent: ask_by_menu_type
+    entities:
+    - menu_type: "sapi"
+  - action: action_recommend_menu
+  - intent: express_dissatisfaction
+  - action: action_handle_complaint
+  - intent: ask_by_cooking_method
+    entities:
+    - cooking_method: "rendang"
+  - action: action_recommend_menu
+  - intent: express_satisfaction
+  - action: utter_satisfaction
+
+- story: exploration journey
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_random_menu
+  - action: action_get_random_menu
+  - intent: ask_about_menu_details
+  - action: utter_menu_details
+  - intent: ask_alternative
+  - action: action_suggest_alternatives
+  - intent: ask_by_region
+    entities:
+    - region: "padang"
+  - action: action_recommend_menu
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: multiple criteria exploration
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_by_menu_type
+    entities:
+    - menu_type: "ayam"
+  - action: action_recommend_menu
+  - intent: ask_by_cooking_method
+    entities:
+    - cooking_method: "bakar"
+  - action: action_recommend_menu
+  - intent: ask_by_flavor
+    entities:
+    - flavor: "pedas"
+  - action: action_recommend_menu
+  - intent: ask_random_menu
+  - action: action_get_random_menu
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: out of scope then back to menu
+  steps:
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+  - intent: ask_by_menu_type
+    entities:
+    - menu_type: "ikan"
+  - action: action_recommend_menu
+
+- story: nlu fallback recovery
+  steps:
+  - intent: nlu_fallback
+  - action: utter_default
+  - intent: ask_help
+  - action: utter_help
+  - intent: ask_random_menu
+  - action: action_get_random_menu
+
+- story: affirm after search success
+  steps:
+  - intent: ask_by_menu_type
+    entities:
+    - menu_type: "seafood"
+  - action: action_recommend_menu
+  - intent: affirm
+  - action: utter_affirm
+
+- story: deny and try different
+  steps:
+  - intent: ask_by_cooking_method
+    entities:
+    - cooking_method: "goreng"
+  - action: action_recommend_menu
+  - intent: deny
+  - action: utter_deny
+  - intent: ask_by_cooking_method
+    entities:
+    - cooking_method: "bakar"
+  - action: action_recommend_menu
+
+- story: database setup then search
+  steps:
+  - intent: action_ingest_menus
+  - action: action_ingest_menus
+  - intent: ask_by_menu_type
+    entities:
+    - menu_type: "ayam"
+  - action: action_recommend_menu
+
+- story: ingest then random exploration
+  steps:
+  - intent: action_ingest_menus
+  - action: action_ingest_menus
+  - intent: ask_random_menu
+  - action: action_get_random_menu
+  - intent: ask_alternative
+  - action: action_suggest_alternatives
+
+- story: ayam bakar pedas with satisfaction
+  steps:
+  - intent: ask_menu_recommendation_complex
+    entities:
+    - menu_type: "ayam"
+    - cooking_method: "bakar"
+    - flavor: "pedas"
+  - action: action_recommend_menu
+  - intent: express_satisfaction
+  - action: utter_satisfaction
+
+- story: padang food exploration
+  steps:
+  - intent: ask_by_region
+    entities:
+    - region: "padang"
+  - action: action_recommend_menu
+  - intent: ask_about_menu_details
+  - action: utter_menu_details
+  - intent: ask_alternative
+  - action: action_suggest_alternatives
+
+- story: spicy food with dissatisfaction
+  steps:
+  - intent: ask_by_flavor
+    entities:
+    - flavor: "pedas"
+  - action: action_recommend_menu
+  - intent: express_dissatisfaction
+  - action: action_handle_complaint
+  - intent: ask_by_flavor
+    entities:
+    - flavor: "manis"
+  - action: action_recommend_menu
+
+- story: crispy texture search
+  steps:
+  - intent: ask_by_flavor
+    entities:
+    - texture: "crispy"
+  - action: action_recommend_menu
+
+- story: empuk texture with protein
+  steps:
+  - intent: ask_menu_recommendation_complex
+    entities:
+    - menu_type: "sapi"
+    - texture: "empuk"
+  - action: action_recommend_menu
+
+- story: natural conversation with mixed intents
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_menu_general
+  - action: action_recommend_menu
+  - intent: express_dissatisfaction
+  - action: action_handle_complaint
+  - intent: ask_help
+  - action: utter_help
+  - intent: ask_menu_recommendation_complex
+    entities:
+    - menu_type: "ayam"
+    - texture: "crispy"
+    - flavor: "pedas"
+  - action: action_recommend_menu
+  - intent: express_satisfaction
+  - action: utter_satisfaction
+  - intent: ask_about_menu_details
+  - action: utter_menu_details
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: soto exploration
+  steps:
+  - intent: ask_by_dish_type
+    entities:
+    - dish_type: "soto"
+  - action: action_recommend_menu
+  - intent: ask_alternative
+  - action: action_suggest_alternatives
+
+- story: nasi with protein combination
+  steps:
+  - intent: ask_menu_recommendation_complex
+    entities:
+    - dish_type: "nasi"
+    - menu_type: "ayam"
+    - cooking_method: "bakar"
+  - action: action_recommend_menu
